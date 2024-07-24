@@ -20,7 +20,7 @@ void UDF_ExecuteStep(nrs_t *nrs, dfloat time, int tstep)
   }
 
   // print y1+ values at output steps
-  if (nrs->isCheckpointStep)
+  if (nrs->isOutputStep)
   {
     nek::ocopyToNek(time, tstep);
     nek::userchk();
