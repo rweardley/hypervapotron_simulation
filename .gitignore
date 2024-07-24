@@ -23,3 +23,7 @@ log.*
 # slurm outputs
 slurm-*.out
 machine.file.*
+
+# NekRS setup
+s.bin
+.lhelper
