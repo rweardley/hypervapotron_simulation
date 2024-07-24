@@ -1,1 +1,1 @@
-rm -r log.* *0.f0* *.nek5000
+rm -r log.* *0.f0* *.nek5000 nekRS_*.out

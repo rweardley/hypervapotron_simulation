@@ -5,14 +5,21 @@
 #ifdef __okl__
 
 // source the user-defined OCCA kernels
-#include "pipe.oudf"
+#include "hvt.oudf"
 
 #endif
 
 void UDF_ExecuteStep(double time, int tstep)
 {
+  // print y1+ values at first timestep
+  if (time == tstep)
+  {
+    nek::ocopyToNek(time, tstep);
+    nek::userchk();
+  }
+
   // print y1+ values at output steps
-  if (nrs->isOutputStep)
+  if (nrs->isCheckpointStep)
   {
     nek::ocopyToNek(time, tstep);
     nek::userchk();

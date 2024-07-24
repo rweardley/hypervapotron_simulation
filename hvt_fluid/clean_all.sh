@@ -1,1 +1,1 @@
-rm -r .cache log.* *0.f0* *.nek5000 cmake.log
+rm -r .cache log.* *0.f0* *.nek5000 cmake.log .lhelper s.bin nekRS_*.out
