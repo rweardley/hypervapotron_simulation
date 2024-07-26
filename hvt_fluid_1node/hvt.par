@@ -1,20 +1,17 @@
 [GENERAL]
 polynomialOrder = 3
 
-startFrom = "../hvt_fluid_1node/results/run1/hvt0.f00010"
+startFrom = "results/run1/hvt0.f00010"
 stopAt = endTime
-endTime = 0.48                  # simulation end time [ND]
+endTime = 20.0                  # simulation end time [ND]
 dt = targetCFL=0.5 + max=1.0e-4 + initial=4.0e-5  # adaptive timestep
 timeStepper = tombo2            # timestepping scheme
 subCyclingSteps = 0
 checkpointControl = simulationTime
-checkpointInterval = 0.048        # simulation output time interval [ND]
+checkpointInterval = 1.0        # simulation output time interval [ND]
 
 constFlowRate = meanVelocity=1.0 + direction=X
 regularization = hpfrt + nModes=1 + scalingCoeff=10
-
-[MESH]
-partitioner = rcb
 
 [PRESSURE]
 residualTol = 1e-4              # absolute pressure tolerance [ND]

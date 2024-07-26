@@ -2,15 +2,18 @@
 polynomialOrder = 3
 
 stopAt = endTime
-endTime = 2.4                   # simulation end time [ND]
-dt = 4.0e-4                     # simulation timestep [ND]
+endTime = 20.0                  # simulation end time [ND]
+dt = targetCFL=0.5 + max=1.0e-4 + initial=4.0e-5  # adaptive timestep
 timeStepper = tombo2            # timestepping scheme
 subCyclingSteps = 0
 writeControl = simulationTime
-writeInterval = 0.24            # simulation output time interval [ND]
+writeInterval = 1.0            # simulation output time interval [ND]
 
 constFlowRate = meanVelocity=1.0 + direction=X
 regularization = hpfrt + nModes=1 + scalingCoeff=10
+
+[MESH]
+connectivityTol = 2e-4
 
 [PRESSURE]
 residualTol = 1e-4              # absolute pressure tolerance [ND]
