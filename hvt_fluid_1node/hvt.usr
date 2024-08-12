@@ -13,7 +13,7 @@ c-----------------------------------------------------------------------
 
       ifexport = .true.
       if(istep.gt.0) then
-        if(nio.eq.0)then
+        if(nio.eq.0) then
           write(*,*) '                 minimum      maximum      average'
         endif
         call y_p_limitsRS(ywd,ifexport)
