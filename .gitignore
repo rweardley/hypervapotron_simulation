@@ -11,6 +11,7 @@ log.*
 *.re2
 *.exo
 *.e
+*.stl
 
 # editors
 .vscode

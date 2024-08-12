@@ -2,10 +2,13 @@
 // nekRS User Defined File
 //
 
+#include "yp.inc"
+
 #ifdef __okl__
 
 // source the user-defined OCCA kernels
 #include "hvt.oudf"
+#include "yp.oudf"
 
 #endif
 
@@ -14,13 +17,21 @@ void UDF_ExecuteStep(double time, int tstep)
   // print y1+ values at third timestep
   if (tstep == 3)
   {
-    nek::ocopyToNek(time, tstep);
-    nek::userchk();
+    // NekRS version (do not write y+ field)
+    y_p(nrs, time, false);
+
+    // Nek5000 version; don't run as I don't want an output field
+    // nek::ocopyToNek(time, tstep);
+    // nek::userchk();
   }
 
   // print y1+ values at output steps
   if (nrs->isCheckpointStep)
   {
+    // NekRS version (write y+ field)
+    y_p(nrs, time, true);
+
+    // Nek5000 version
     nek::ocopyToNek(time, tstep);
     nek::userchk();
   }
