@@ -1,13 +1,14 @@
 [GENERAL]
 polynomialOrder = 3
 
+startFrom = "hvt_restart0.f00010"
 stopAt = endTime
-endTime = 30.0                  # simulation end time [ND]
+endTime = 32.0                  # simulation end time [ND]
 dt = targetCFL=0.5 + max=1.0e-4 + initial=4.0e-5  # adaptive timestep
 timeStepper = tombo2            # timestepping scheme
 subCyclingSteps = 0
 checkpointControl = simulationTime
-checkpointInterval = 1.0        # simulation output time interval [ND]
+checkpointInterval = 0.05        # simulation output time interval [ND]
 
 constFlowRate = meanVelocity=1.0 + direction=X
 regularization = hpfrt + nModes=1 + scalingCoeff=10

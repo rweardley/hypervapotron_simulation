@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Note:
+# submit this with `sbatch` from a ghlogin session
+# or `ghbatch` from a Bede login node
+
+# Generic options:
+
+#SBATCH --account=bddir20 # Run job under project <project>
+#SBATCH --time=2:0:0
+
+# Node resources:
+# 1 gpu per node
+
+# build on 1 Grace-Hopper node
+
+#SBATCH --partition=gh      # Choose either "gh" or "ghtest"
+#SBATCH --nodes=5           # Resources from x nodes
+#SBATCH --gres=gpu:1        # One GPU per node (plus 100% of node CPU and RAM per GPU)
+
+./run_with_nvidiasmi.sh
+
+echo "end of job"
